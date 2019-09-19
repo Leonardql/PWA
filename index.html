@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="Description" content="Well designed, easy to understand and use">
+
+
+    <title> Allhawllos-Halloween Event</title>
+
+    
+  
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" sizes="192x192" href="images/icon-192x192.png">
+    <link rel="icon" href="images/header-logo.png" />
+
+</head>
+
+<body>
+
+    <div class="wrapper" id="app">
+        <div v-if="seen" id="sidebar">
+            <button v-on:click="seen = !seen" class="btn btn-primary">X</button>
+            <div class="sidebar-header">
+                <h3>SHOPPING CART </h3>
+            </div>
+            <div v-if="products.length > 0">
+                <ul class="products">
+                    <li class="row" v-for="(product, index) in products">
+                        <div class="col left">
+                            <div class="detail">
+                                <div class="name"> {{tickets[index].title}}: </div>
+
+                                <div class="price">{{ tickets[index].price}} Dollar</div>
+                            </div>
+                        </div>
+
+                        <div class="col right">
+                            <div class="quantity">
+                                <input type="number" class="quantity" value='1' step="1" :value="product.quantity"
+                                    @input="updateQuantity(index, $event)" @blur="checkQuantity(index, $event)" />
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+
+            <section class="container" v-if="products.length > 0">
+                <div class="summary">
+                    <ul>
+                        <li v-if="subTotal > 0">Subtotal: <span>{{ subTotal  }} Dollar </span></li>
+                    </ul>
+                </div>
+
+                <div class="checkout">
+                    <button v-if="isLoggedIn()" @click=checkOut class="btn btn-primary">Check Out</button>
+                    <h4 v-else>Register or login to continue your order.</h4>
+                </div>
+            </section>
+            
+
+        </div>
+
+        <div id="content">
+            <header>
+
+                <nav id="nav-part" class="navbar header-nav sticky-nav sticky-top navbar-expand-md">
+                    <div class="container menu-nav">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="dropdown">
+                                <select v-on:change="changeItem($event)">
+                                    <option type="number" v-for="i in counter.count" :value="i">Event: {{i}}</option>
+                                </select>
+                            </li>
+                        </ul>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="navbar-nav m-auto">
+                                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                                <li class="nav-item"><a class="nav-link " href="#aboutus">About Party</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#artist">Artist</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#testimonial">Testimonial</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#ticket">Tickets </a></li>
+
+                                <li v-if="!isLoggedIn()" class="nav-item"><a class="nav-link"
+                                        href="login.html">Login</a></li>
+                                <li v-if="!isLoggedIn()" class="nav-item"><a class="nav-link"
+                                        href="register.html">Register</a></li>
+
+                                <li v-if="isLoggedIn()" @click='logout()' class="nav-item"><a class="nav-link"
+                                        href="index.html">Log out</a></li>
+                                </ul>
+
+
+                                <ul class="navbar-right  nav-sign">
+
+                                    <li><a class="nav-link container-fluid" v-on:click="seen = !seen" href="#">Get a
+                                            Ticket</a></li>
+
+                                </ul>
+
+
+                            </div>
+                        </div>
+                </nav>
+            </header>
+
+
+            <section id="home" class="home-banner">
+                <div class="container">
+                    <div class="row full-screen ">
+                        <div class="col-md-7 banner-img d-none d-md-block">
+                            <img src="images/Banner.png" class="img-fluid" alt="banner">
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <div class="home-text-center">
+                                <h2>{{events[0].date}}</h2>
+                                <h5 class="font-alt ban-txt">{{events[0].title}}</h5>
+                                <p class="text-center">{{events[0].info}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="aboutus" class="section aboutus">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-12 ml-md-auto text-center about-party">
+                            <h2 class="font-alt heading">About The Party</h2>
+                            <div class="about-text">
+                                <p>{{events[0].about_the_party}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="artist-part">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 ml-md-auto text-center">
+                                <h2 class="font-alt heading">Our Halloween's Artist</h2>
+                            </div>
+                            <div v-for="(artist, index) in artists" class="col-md-6">
+                                <div class="row">
+
+                                    <div class="col-md-6 artist-img">
+                                        <img src="images/artist-image.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-6 artist-info">
+
+                                        <h3>{{artists[0].firstName}} {{artists[0].lastName}} </h3>
+                                        <h3>{{artists[0].role}}</h3>
+                                        <p>{{artists[0].motto}}</p>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="gallery" class="gallery">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 ml-md-auto text-center">
+                            <h2 class="font-alt heading">Halloween Gallery</h2>
+                        </div>
+
+
+
+                        <div class="col-12 col-md-3 gallery-padding">
+                            <div class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <img src="images/gallery-image-1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div v-if='!loading'>
+                                    <h2>{{ guests[0].firstName }} {{ guests[0].lastName }}</h2>
+                                    <h5>{{ guests[0].role }}</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 gallery-padding">
+                            <div class="gallery-img gallery-1">
+                                <div v-if='!loading'>
+                                    <h2>{{ guests[1].firstName }} {{ guests[1].lastName }}</h2>
+                                    <h5>{{ guests[1].role }}</h5>
+                                </div>
+                                <div class="gallery-overlay">
+                                    <img src="images/gallery-image-2.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 gallery-padding">
+                            <div class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <img src="images/gallery-image-3.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div v-if='!loading'>
+                                    <h2>{{ guests[2].firstName }} {{ guests[2].lastName }}</h2>
+                                    <h5>{{ guests[2].role }}</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 gallery-padding">
+                            <div class="gallery-img gallery-1">
+                                <div v-if='!loading'>
+                                    <h2>{{ guests[3].firstName }} {{ guests[3].lastName }}</h2>
+                                    <h5>{{ guests[3].role }}</h5>
+                                </div>
+                                <div class="gallery-overlay">
+                                    <img src="images/gallery-image-4.jpg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="section testimonial-section" id="testimonial">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 ml-md-auto text-center">
+                            <h2 class="heading">Halloween testimonial</h2>
+                        </div>
+                        <div v-for="(testimonial, index) in testimonials" class="col-md-6 testimonial-overlay">
+                            <div class="row">
+                                <div class="col-lg-4 testimonial-img">
+                                    <img src="images/feedback-image-1.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-lg-8 testimonial-info">
+                                    <h2>{{testimonials[index].name}}</h2>
+                                    <h3>Man Eater</h3>
+                                    <p>{{testimonials[index].comment}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="col-md-12 ml-md-auto text-center">
+                <div class="btn-bar text-center">
+                    <button  v-if="isLoggedIn()" v-on:click="showModal = !showModal"   class="buttons">Create comment</a>
+                </div>
+            </div>
+
+
+            <transition v-if="showModal" name="modal">
+                <div class="modal-mask">
+                  <div class="modal-wrapper">
+                    <div class="modal-container">
+
+                        <button v-on:click="showModal = !showModal" class="btn btn-primary">X</button>
+            
+                      <div class="modal-header">
+                        <slot name="header">
+                          <h2>Add a comment</h2>
+                        </slot>
+                      </div>
+            
+                      <div class="modal-body">
+                        <slot name="body">
+                            <textarea rows="8" cols="auto" type="text" class="form-control" v-model='testimonial.comment' placeholder="Add a Comment" required></textarea>
+                        </slot>
+                      </div>
+            
+                      <div class="modal-footer">
+                        <slot name="footer">
+                          
+                          <button class="modal-default-button btn  btn-primary" @click="sendTestimonial">
+                            Create
+                          </button>
+                        </slot>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </transition>
+
+            <section id="ticket" class="section ticket">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 ml-md-auto text-center">
+                            <h2 class="font-alt heading">Get the Ticket</h2>
+                        </div>
+
+                        <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
+                            <div class="row">
+                                <div v-for="(ticket, index) in tickets" class="col-12 col-md-4">
+                                    <div class="ticket-img">
+                                        <img src="images/ticket-image-1.jpg" class="img-fluid" alt="">
+                                        <div class="ticket-inner text-center">
+                                            <h2>{{tickets[index].title}}</h2>
+                                            <h5>$ {{tickets[index].price}}</h5>
+                                            <ul>
+
+                                                <li>{{tickets[index].title}}</li>
+                                                <li>Ticket is for {{tickets[index].persons_allowed}}</li>
+                                                <li>{{tickets[index].hour_limitation}} hours Limitation</li>
+                                            </ul>
+                                            <div class="btn-ticket text-center">
+                                                <a v-on:click="seen = !seen" class="" data-toggle="modal"
+                                                    data-target="#exampleModal2">Get Ticket</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section invitation-section" id="invitation">
+                <div class="container invite">
+                    <div class="row">
+                        <div class="col-md-12 ml-md-auto text-center">
+                            <h2 class="heading">Invite someone special</h2>
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="text" v-model='invintation.guestName' placeholder="Guest Name" required />
+
+                            <input type="tel" v-model='invintation.guestNumber' placeholder="Guest Mobile Number"
+                                required />
+
+                            <br>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="email" v-model='invintation.guestEmail' name="email"
+                                placeholder="Guest Email Address" required />
+
+                            <input type="text" v-model='invintation.guestMessage' name="message"
+                                placeholder="Type here your message." required />
+
+
+                        </div>
+                        <div class="col-md-12 ml-md-auto text-center">
+                            <div class="btn-bar text-center">
+                                <button v-if="isLoggedIn()" @click="sendInvintation" class="buttons">Send Invitation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Bootstrap JS -->
+    
+    <script src="sw.js"></script>
+    <script src="assets/js/localforage.min.js"></script>
+    <script src="assets/js/serviceworker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+
+
+
+</body>
+
+</html>

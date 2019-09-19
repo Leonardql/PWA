@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/shoppingcart.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="apps">
+        <div class="container">
+            <div class="row  ">
+                <div class="col-md-7 ">
+                    <h1>Halloween Party</h1>
+                    <p>Shipping Address</p>
+                    <form>
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="firstName" v-model=submitOrder.firstName
+                                    placeholder="First Name" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="lastName" v-model=submitOrder.lastName
+                                    placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="company" v-model=submitOrder.company
+                                placeholder="Company (optional)">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="address" v-model=submitOrder.address
+                                placeholder="Address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="apartment" v-model=submitOrder.apartment
+                                placeholder="Apartment, suite (optional)">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="city" v-model=submitOrder.city
+                                placeholder="City" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="country" v-model=submitOrder.country
+                                    placeholder="Country" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="postal" v-model=submitOrder.postal
+                                    placeholder="Postal Code" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="phoneNumber" v-model=submitOrder.phoneNumber
+                                placeholder="Phone Number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" @click="sendOrder" class="btn btn-primary" value="ORDER TICKETS">ORDER TICKETS</button>
+                          </div>
+                        
+
+
+                    </form>
+
+                    <p> <a href="index.html"> < Go Back</a> </p>
+                </div>
+                <div class="col-md-5">
+                    <h1>Order Status: </h1>
+                    <div class="order">
+                        <ul v-for="order in orders">
+                            <li>{{ order.productName }}: {{ order.price }} Dollar <span>{{order.quantity}} TICKETS</span></li>
+                        </ul>
+                
+                        <div class="total" v-for="total in subTotal">
+                            <h3>Total Order is : <strong>{{ total.totalOrder }}</strong> Dollar</h3>
+                        </div>
+                
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+
+    <script src="assets/js/localforage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="assets/js/shoppingcart.js"></script>
+
+</body>
+
+</html>

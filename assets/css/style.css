@@ -1,0 +1,845 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+    background: url(../../images/body-img.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+img {
+    max-width: 100%
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+#sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0;
+    text-align: left;
+    z-index: 100;
+}
+
+#sidebar.active {
+    margin-right: -300px;
+}
+
+#sidebar {
+    background: white;
+    color: black;
+}
+
+#sidebar h3 {
+    text-align: center;
+    padding: 19px;
+    border: solid 1px black;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: white;
+}
+
+input.quantity{
+    width: 25%
+}
+
+li.row{
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+div.checkout {
+    margin-left: 10px;
+}
+
+div.summary {
+    margin-left:  10px;
+}
+
+div.summary span {
+    font-weight: bold;
+}
+
+div.btn-bar.text-center{
+    margin-bottom: 25px;
+}
+
+.wrapper {
+    width: 100%;
+    align-items: stretch;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.buttons {
+    color: #7f479a;
+    font-family: "Berkshire Swash";
+    padding: 12px;
+    border-radius: 35px;
+    width: 145px;
+    background: #f7ea66;
+}
+
+.section {
+    padding-top: 60px;
+}
+
+.sticky-nav {
+    background: #2c0047;
+}
+
+.sticky-nav {
+    z-index: 0;
+}
+
+.header-nav .navbar-nav>li {
+    margin: 15px 0 0 20px;
+}
+
+.header-nav .navbar-nav .nav-item {
+    position: relative;
+}
+
+.header-nav .navbar-nav .nav-item a {
+    position: relative;
+    padding: 0 10px;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    color: #fff;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: "Berkshire Swash";
+}
+
+.header-nav .navbar-nav .nav-link.active:before, .header-nav .navbar-nav .nav-item:before {
+    content: '';
+    position: absolute;
+    z-index: -9;
+    width: 117%;
+    left: -5px;
+    right: 0;
+    top: -36px;
+    height: 0px;
+    background: #552f4d;
+    opacity: 0.7;
+    transition: ease all .5s;
+}
+
+.header-nav .navbar-nav .nav-link.active:before, .header-nav .navbar-nav .nav-item:hover:before {
+    height: 88px;
+}
+
+
+.nav-sign li a {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 24px;
+    color: #7f479a;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    padding: 12px;
+    border-radius: 35px;
+    width: 145px;
+    height: 50px;
+    transition: ease all .5s;
+    background: #f7ea66;
+}
+
+.nav-sign li a:hover {
+    box-shadow: 0px 0px 40px 4px rgba(249, 220, 4, .3);
+}
+
+.full-screen {
+    min-height: 620px;
+    position: relative;
+}
+
+.home-banner {
+    background: #2c0047;
+}
+
+.home-text-center {
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 120%;
+}
+
+.home-banner .ban-txt {
+    position: relative;
+    padding-left: 35px;
+}
+
+.home-banner h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    font-family: "Berkshire Swash";
+    line-height: 24px;
+}
+
+.home-banner h5 {
+    font-size: 60px;
+    font-weight: 400;
+    color: #f7ea66;
+    font-family: "Berkshire Swash";
+    line-height: 24px;
+    margin: 25px 0 50px;
+}
+
+.home-banner p {
+    width: 490px;
+    max-width: 100%;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 0 0 35px;
+    color: #fff;
+    font-family: "Open Sans";
+    line-height: 24px;
+}
+
+.banner-img {
+    position: absolute;
+    left: -30px;
+    bottom: 0;
+}
+
+.banner-img img {
+    position: relative;
+}
+
+/* ===========================================================
+                        About us Part
+===============================================================*/
+
+#aboutus {
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+}
+
+#aboutus:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: -56px;
+    right: 0;
+    top: -10px;
+    height: 100%;
+    background: url(../../images/about-spider-wev-image.png);
+    background-repeat: no-repeat;
+}
+
+#aboutus:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    left: 48%;
+    top: -214px;
+    height: 100%;
+    background: url(../../images/title-spider.png);
+    background-repeat: no-repeat;
+}
+
+.aboutus {
+    position: relative;
+}
+
+.heading {
+    font-size: 32px;
+    position: relative;
+    color: #f7ea66;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 40px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.about-party {
+    z-index: 99;
+}
+
+.about-text p {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 665px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Open Sans";
+    z-index: 9;
+}
+
+/* ===========================================================
+                            Artist  Part
+===============================================================*/
+
+.artist-part {
+    margin-top: 60px;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.artist-part:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    left: 48%;
+    top: -265px;
+    height: 100%;
+    background: url(../../images/title-spider.png);
+    background-repeat: no-repeat;
+}
+
+.artist-part:after {
+    content: '';
+    position: absolute;
+    z-index: -13;
+    width: 100%;
+    left: 54%;
+    top: -880px;
+    height: 320%;
+    background: url(../../images/Skull.jpg);
+    background-repeat: no-repeat;
+}
+
+.artist-img {
+    padding: 0;
+}
+
+.artist-info {
+    margin-top: 50px;
+    margin-left: -25px;
+    z-index: 9;
+}
+
+.artist-info h2 {
+    font-size: 24px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.artist-info h3 {
+    font-size: 16px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.artist-info p {
+    width: 330px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Open Sans";
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.artist-info ul li a {
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid #f7ea66;
+    float: left;
+    color: #f7ea66;
+    font-size: 16px;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    border-radius: 50%;
+    transition: ease all .5s;
+}
+
+.artist-info ul li:last-child a {
+    margin-right: 0px;
+}
+
+.artist-info ul li a:hover {
+    color: #7f479a;
+    background: #f7ea66;
+    border: 1px solid #f7ea66;
+    box-shadow: 0px 0px 40px 4px rgba(249, 220, 4, .2);
+}
+
+/* ==============================
+      Gallery Part start
+=================================*/
+
+#gallery {
+    background: url(../../images/gallery-background-image.jpg);
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+#gallery:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    left: 48%;
+    top: -209px;
+    height: 100%;
+    background: url(../../images/title-spider.png);
+    background-repeat: no-repeat;
+}
+
+.gallery .heading {
+    padding-top: 64px;
+}
+
+.gallery-padding {
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 99;
+}
+
+.gallery-overlay {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .6);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.gallery-overlay ul {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gallery-overlay ul li {
+    margin-bottom: 9px;
+}
+
+.gallery-overlay ul li a {
+    text-align: center;
+    border: 1px solid #f7ea66;
+    display: inline-block;
+    color: #f7ea66;
+    font-size: 16px;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    border-radius: 50%;
+    transition: ease all .5s;
+}
+
+.gallery-overlay ul li a:hover {
+    color: #7f479a;
+    background: #f7ea66;
+    border: 1px solid #f7ea66;
+    box-shadow: 0px 0px 40px 4px rgba(249, 220, 4, .2);
+}
+
+.gallery-overlay:hover .overlay {
+    bottom: 0;
+    height: 100%;
+    cursor: crosshair;
+}
+
+.gallery-img h2 {
+    font-size: 20px;
+    color: #f7ea66;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    text-transform: capitalize;
+    margin-top: 10px;
+    padding-left: 15px;
+    z-index: 9;
+}
+
+.gallery-img h5 {
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    padding-left: 15px;
+    font-family: "Berkshire Swash";
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+/* ==============================
+        testimonial  Part Start
+   ============================== */
+
+.testimonial-section {
+    position: relative;
+    padding-bottom: 60px;
+    z-index: 9;
+    overflow: hidden;
+}
+
+.testimonial-section:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    left: 48%;
+    top: -213px;
+    height: 100%;
+    background: url(../../images/title-spider.png);
+    background-repeat: no-repeat;
+}
+
+.testimonial-info {
+    z-index: 9;
+}
+
+.testimonial-info h2 {
+    font-size: 20px;
+    color: #f7ea66;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.testimonial-info h3 {
+    font-size: 16px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.testimonial-info p {
+    width: 375px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Open Sans";
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.testimonial-img {
+    z-index: 99;
+}
+
+.testimonial-overlay {
+    position: relative;
+}
+
+.testimonial-overlay:after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    left: -5%;
+    top: -70px;
+    height: 175%;
+    background: url(../../images/Scratch.png);
+    background-repeat: no-repeat;
+}
+
+
+
+/* ==============================
+        Ticket Part Start
+   ============================== */
+
+#ticket {
+    background: url(../../images/get-ticket-background-image.jpg);
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0px;
+}
+
+#ticket:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    left: 48%;
+    top: -213px;
+    height: 100%;
+    background: url(../../images/title-spider.png);
+    background-repeat: no-repeat;
+}
+
+.ticket-img {
+    border: 0.5px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.ticket-img:hover {
+    border: 1px solid #f7ea66;
+    box-shadow: 0px 0px 60px 4px rgba(249, 220, 254, .15);
+}
+
+.ticket {
+    position: relative;
+    z-index: 9;
+}
+
+.ticket-inner {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ticket-inner h2 {
+    font-size: 20px;
+    color: #f7ea66;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    z-index: 9;
+}
+
+.ticket-inner h5 {
+    font-size: 45px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    margin: 30px 0 40px;
+    z-index: 9;
+}
+
+.ticket-inner ul li {
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    margin: 15px 0;
+    z-index: 9;
+}
+
+.btn-ticket a {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 24px;
+    color: #7f479a;
+    font-weight: 400;
+    font-family: "Berkshire Swash";
+    padding: 7px;
+    border-radius: 35px;
+    width: 120px;
+    height: 40px;
+    transition: ease all .5s;
+    background: #f7ea66;
+}
+
+.btn-ticket a:hover {
+    box-shadow: 0px 0px 40px 4px rgba(249, 220, 4, .3);
+}
+
+
+
+/* ==============================
+        Invitation Start
+   ============================== */
+
+#invitation {
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+}
+
+#invitation:before {
+    content: '';
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    left: 48%;
+    top: -213px;
+    height: 37%;
+    background: url(../../images/title-spider.png);
+    background-repeat: no-repeat;
+}
+
+.invite {
+    z-index: 999;
+}
+
+.invitation-section input [type="email"]:focus {
+    outline: none !important;
+    border-color: #f7ea66;
+    color: #f7ea66;
+}
+
+.invitation-section input {
+    margin-bottom: 10px;
+    position: relative;
+    color: #ccc;
+    text-transform: capitalize;
+    resize: none;
+    border: 0.5px solid #fff;
+    font-size: 14px;
+    font-family: "Berkshire Swash";
+    height: 30px;
+    background: transparent;
+    box-shadow: none!important;
+    width: 560px;
+    padding-left: 10px;
+}
+
+.invitation-section input:focus {
+    outline: none !important;
+    border-color: #f7ea66;
+    color: #f7ea66;
+}
+
+
+.invitation-section select {
+    margin-bottom: 10px;
+    position: relative;
+    color: #ccc;
+    text-transform: capitalize;
+    resize: none;
+    border: 0.5px solid #fff;
+    font-size: 14px;
+    font-family: "Berkshire Swash";
+    height: 30px;
+    background: transparent;
+    width: 560px;
+    padding-left: 10px;
+}
+
+.invitation-section select option {
+    color: #222;
+}
+
+.invitation-section .btn-bar {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+  
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .modal-container {
+    width: 500px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+  
+  .modal-body {
+    margin: 20px 0;
+  }
+  
+  .modal-default-button {
+    float: right;
+  }
+  
+  
+  .modal-enter {
+    opacity: 0;
+  }
+  
+  .modal-leave-active {
+    opacity: 0;
+  }
+  
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }

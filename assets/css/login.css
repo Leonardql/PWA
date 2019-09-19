@@ -1,0 +1,153 @@
+@media (min-width: 320px) and (max-width: 575px) {
+    div.container{
+        margin-bottom: 30px;
+        width: 93%;
+        max-width: 100%;
+        
+    }
+    div.input-box {
+        width: 100%;
+     }
+    
+    img.login-banner{
+        display: none
+    }
+    div.login-image{
+        width: 100%
+    }
+}
+
+
+body{
+    background-image: url("../../images/body-img.jpg");
+    font-size: 14px;
+
+}
+h1{
+    color: #F7EA66;
+    text-align: center;
+    font-size: 3.5rem;
+}
+h2 {
+    font-size: 3rem;
+    line-height: 1.8;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+form {
+    padding: 72px 70px 70px 70px;
+}
+
+input {
+    transition: 0.3s ease;
+    padding-top: 10px;
+}
+
+input:focus + .form-label, input:valid + .form-label {
+    top: 1px;
+    font-size: 11px;
+    color: #7F479A;
+}
+
+input, select {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #999;
+    padding: 4px 0;
+}
+
+.login-image p{
+    color: white;
+    text-align: center;
+    padding: 10px 50px 0 50px;
+
+}
+.container{
+    margin-top: 80px;
+    border-radius: 18px;
+    border: solid 1px;
+    box-shadow: 0 0 16px 1px #212121;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+ .login-box {
+    display: flex;
+    flex-wrap: wrap;
+
+ }
+
+.login-image {
+    width: 58%;
+}
+
+.login-banner {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.input-box {
+    width: 41.67%;
+    background: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-input {
+    padding-top: 21px;
+}
+
+.form-label {
+    position: absolute;
+
+    color: #bebebe;
+    left: 0;
+    top: 23px;
+}
+
+.submit {
+    width: auto;
+    background: #7F479A;
+    color: white;
+    padding: 15px 43px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 26px;
+}
+
+.submit:hover {
+    background: #8e279a;
+}
+
+.error{
+    color: red
+}
+
+
+
+
+
+
+
+
+
+
+
